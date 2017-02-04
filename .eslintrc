@@ -1,0 +1,24 @@
+{
+    "extends": ["angular"],
+    "env": {
+        "browser": true,
+        "jasmine": true
+    },
+    "globals": {
+        "angular": true,
+        "inject": true,
+        "window": true,
+        "jQuery": true,
+        "define": true,
+        "module": true,
+        "noGlobal": true,
+        "env" : true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6
+    },
+    "rules": {
+        "strict": ["error", "function"],
+        "angular/controller-name": 0
+    }
+}

@@ -1,0 +1,18 @@
+@import "styles/colors.scss";
+
+body {
+    overflow: hidden;
+    font-family: 'Open Sans', sans-serif;
+}
+
+a , *[ng-click], *[ui-sref] {
+    cursor: pointer;
+}
+
+* {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+a {
+    cursor: pointer;
+}

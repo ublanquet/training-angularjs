@@ -1,0 +1,32 @@
+{
+    "extends": "tslint:latest",
+
+    "rules": {
+        "quotemark": [true, "single"],
+        "only-arrow-functions": [false],
+        "no-namespace": [false],
+        "variable-name": [true, "ban-keywords", "allow-leading-underscore"],
+        "trailing-comma": [true, {"multiline": "never", "singleline": "never"}],
+        "one-variable-per-declaration": [false],
+        "no-bitwise": [false],
+        "arrow-parens": [false],
+
+        "member-ordering": [
+            "public-static-field",
+            "public-static-method",
+            "protected-static-field",
+            "protected-static-method",
+            "private-static-field",
+            "private-static-method",
+            "public-instance-field",
+            "protected-instance-field",
+            "private-instance-field",
+            "public-constructor",
+            "protected-constructor",
+            "private-constructor",
+            "public-instance-method",
+            "protected-instance-method",
+            "private-instance-method"
+        ]
+    }
+}

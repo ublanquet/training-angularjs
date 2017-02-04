@@ -1,0 +1,9 @@
+{
+    "allow_root": true,
+    "directory": "bower_components",
+    "scripts": {
+    },
+    "resolvers": [
+        "bower-npm-resolver"
+    ]
+}

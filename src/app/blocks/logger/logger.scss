@@ -1,0 +1,13 @@
+.toast-debug {
+    background-position: initial !important;
+
+    background-color: transparentize(#e8c100, 0.3);
+    .toast-message {
+        color: #965300;
+        text-shadow: 1px 1px 0px #3e2000;
+    }
+
+    margin: 0;
+    background-size: cover;
+    background-repeat: repeat;
+}

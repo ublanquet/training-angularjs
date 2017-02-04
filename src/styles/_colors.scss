@@ -1,0 +1,82 @@
+/* Here we should define all color of color scheme */
+@import 'palette';
+
+$color-background: $grey-lighten-4;
+$color-background-darken: $grey-lighten-2;
+$color-background-lighten: white;
+$color-txt: $grey-darken-3;
+$color-txt-lighten: $grey-darken-1;
+$color-txt-darken: $black;
+
+
+$color-default: white;
+$color-default-darken: $grey-base;
+$color-default-lighten: $grey-lighten-3;
+$color-default-border: $grey-lighten-2;
+$color-default-hover: $grey-lighten-4;
+$color-default-txt: $grey-darken-4;
+
+// primary colors
+$color-primary: $green-base;
+$color-primary-darken: $green-darken-4;
+$color-primary-lighten: $green-darken-2;
+$color-primary-border: $green-darken-4;
+$color-primary-hover: $green-lighten-1;
+$color-primary-txt: $white;
+
+// secondary colors
+$color-secondary: $grey-darken-3;
+$color-secondary-darken: $grey-darken-3;
+$color-secondary-lighten: $grey-darken-1;
+$color-secondary-border: $grey-darken-4;
+$color-secondary-hover: $grey-darken-4;
+$color-secondary-txt: $white;
+
+// accent colors
+$color-accent: $blue-darken-1;
+$color-accent-darken: $light-blue-darken-4;
+$color-accent-lighten: $light-blue-lighten-2;
+$color-accent-border: $light-blue-darken-4;
+$color-accent-hover: $light-blue-lighten-1;
+$color-accent-txt: $white;
+
+// success colors
+$color-success: $green-base;
+$color-success-alt: $green-lighten-4;
+$color-success-lighten: $green-lighten-1;
+$color-success-darken: $green-darken-1;
+$color-success-border: $green-darken-4;
+$color-success-hover: $green-lighten-1;
+$color-success-txt: $white;
+
+// info colors
+$color-info: $light-blue-base;
+$color-info-alt: $light-blue-lighten-4;
+$color-info-lighten: $light-blue-lighten-1;
+$color-info-darken: $light-blue-darken-1;
+$color-info-border: $light-blue-darken-4;
+$color-info-hover: $light-blue-lighten-1;
+$color-info-txt: $white;
+
+// warning colors
+$color-warning: $orange-base;
+$color-warning-alt: $orange-lighten-4;
+$color-warning-lighten: $orange-lighten-1;
+$color-warning-darken: $orange-darken-1;
+$color-warning-border: $orange-darken-4;
+$color-warning-hover: $orange-lighten-1;
+$color-warning-txt: $white;
+
+// error colors
+$color-error: $red-base;
+$color-error-alt: $red-lighten-4;
+$color-error-lighten: $red-lighten-1;
+$color-error-darken: $red-darken-1;
+$color-error-border: $red-darken-4;
+$color-error-hover: $red-lighten-1;
+$color-error-txt: $white;
+
+// ... define more when needed.
+
+$color-shade-percent: 15%;
+$color-trans-percent: 0.5;
