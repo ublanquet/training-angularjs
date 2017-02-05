@@ -133,6 +133,7 @@ It is bootstraped by the [ng-app](https://docs.angularjs.org/api/ng/directive/ng
 Rewrite the actual code, to create a new AngularJS module named `app.hello`, that define a component `hello`.
 This component is reachable through the state named `hello`, bound to the url `/hello`
 In order to let `app` module using the new `app.hello` module, don't forget to add it as a dependency in `hello.component.js`.
+Add some style to this component (ie: title in red)
 This step should produce the following files:
 ```sh
 app/hello/hello.html
@@ -140,13 +141,24 @@ app/hello/hello.module.js
 app/hello/hello.route.js
 app/hello/hello.component.js
 app/hello/hello.spec.js
+app/hello/hello.scss
 ```
 
 > It is a good idea to let modules come with their own routes, rather than defining a single 'routes.js' that list all existing routes of the app.
 
+> How to ensure that hello.scss style does apply only to hello component?
 
 
-### 2. Hello module
+### 2. Build project
+Run `gulp build` to build the project. Building a web project often involves optimising the sources & resources.
+This gulp setup is configured to lint the code, minimize & uglify javascript sources, optimise images, concatenate all html files within angular's [templateCache](https://docs.angularjs.org/api/ng/service/$templateCache), process SCSS files to optimized & prefixed CSS, ... 
+Provided code ling passes, a resulting dist/ folder have been generated with optimized code. 
+Test it with `gulp serve:dist`:
+
+Oooops: You might encounter this weird error.
+
+
+> Never write CSS browser prefixes. That is code noise! If you need your application to be compatible with old browsers, use a plugin that post-process CSS for you.
 
 
 

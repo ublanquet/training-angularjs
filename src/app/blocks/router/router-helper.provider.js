@@ -9,7 +9,7 @@
     /* @ngInject */
     function routerHelperProvider($stateProvider, $urlRouterProvider) {
         /* jshint validthis:true */
-        var config = {
+        const config = {
             docTitle: undefined,
             resolveAlways: {}
         };
@@ -21,22 +21,19 @@
         this.$get = RouterHelper;
 
         /* @ngInject */
-        function RouterHelper() {
-            var hasOtherwise = false;
-            var stateCounts = {
+        function RouterHelper($state) {
+            let hasOtherwise = false;
+            const stateCounts = {
                 errors: 0,
                 changes: 0
             };
 
-            var service = {
+            return {
                 docTitle: config.docTitle,
                 configureStates: configureStates,
                 getStates: getStates,
                 stateCounts: stateCounts
             };
-
-
-            return service;
 
             ///////////////
 

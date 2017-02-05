@@ -1,4 +1,4 @@
-/* global toastr:false, moment:false */
+/* global toastr:false */
 (function () {
     'use strict';
 

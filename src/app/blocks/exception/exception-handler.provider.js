@@ -33,7 +33,7 @@
      */
     /* @ngInject */
     function config($provide) {
-        // $provide.decorator('$exceptionHandler', extendExceptionHandler);
+        $provide.decorator('$exceptionHandler', extendExceptionHandler);
     }
 
     /**

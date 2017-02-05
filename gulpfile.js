@@ -69,7 +69,8 @@ function watch(done) {
         reloadBrowserSync);
 
     // watch index.html => build
-    gulp.watch(conf.path.app('index.html'), gulp.series('clean', 'scripts',  'styles', 'resources:i18n'), reloadBrowserSync);
+    gulp.watch(conf.path.app('index.html'), gulp.series('clean', 'scripts',  'styles', 'resources:i18n'),
+        reloadBrowserSync);
 
     // watch d.ts => typings
     gulp.watch([
