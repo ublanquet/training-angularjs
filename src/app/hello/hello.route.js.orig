@@ -1,0 +1,29 @@
+<<<<<<< ca1f97b90cbac17461be977c9c478820098fd264:src/app/hello.route.js
+(function() {
+    'use strict';
+    angular
+        .module('app')
+        .config(routesConfig);
+=======
+angular
+    .module('app.hello')
+    .config(routesConfig);
+
+/** @ngInject */
+function routesConfig($stateProvider) {
+    $stateProvider
+        .state('hello', {
+            url: '/',
+            component: 'hello'
+        });
+}
+>>>>>>> 1 - hello component:src/app/hello/hello.route.js
+
+    function routesConfig($stateProvider) {
+        $stateProvider
+            .state('app', {
+                url: '/',
+                component: 'hello'
+            });
+    }
+})();

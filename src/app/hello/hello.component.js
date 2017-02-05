@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-    angular.module('app')
+    angular.module('app.hello')
         .component('hello', {
-            templateUrl: 'src/app/hello.html',
+            templateUrl: 'src/app/hello/hello.html',
             controller: HelloController
         });
 
