@@ -127,6 +127,7 @@ function injectKarma(cb) {
         .concat(cache.get('scripts'));
 
     gulp.src(dstConf)
+        .pipe(plumber()) // exit gracefully if something fails after this
         .pipe(gulpInject(gulp.src(jsOrder, {base: '.'}), injectOptions))
         .pipe(wiredep(Object.assign({}, conf.wiredep)))
         .pipe(gulp.dest(conf.path.tmp()))
