@@ -23,7 +23,7 @@
     /* @ngInject */
     function configureRoutes($urlRouterProvider, $locationProvider) {
         $locationProvider.html5Mode(true).hashPrefix('!');
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/404');
     }
 
     /* @ngInject */

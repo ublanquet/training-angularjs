@@ -128,7 +128,7 @@ It is bootstraped by the [ng-app](https://docs.angularjs.org/api/ng/directive/ng
 
 > As the application grows up, you will soon get a bunch of files all around the project, and it is a good idea to keep consistent & coherent file organisation.
 
-### 1. Hello module
+### 1. First module - Hello module
 
 Rewrite the actual code, to create a new AngularJS module named `app.hello`, that define a component `hello`.
 This component is reachable through the state named `hello`, bound to the url `/hello`
@@ -148,6 +148,8 @@ app/hello/hello.scss
 
 > How to ensure that hello.scss style does apply only to hello component?
 
+> Never write CSS browser prefixes. That is code noise! If you need your application to be compatible with old browsers, use a plugin that post-process CSS for you.
+
 
 ### 2. Build project
 Run `gulp build` to build the project. Building a web project often involves optimising the sources & resources.
@@ -155,17 +157,24 @@ This gulp setup is configured to lint the code, minimize & uglify javascript sou
 Provided code ling passes, a resulting dist/ folder have been generated with optimized code. 
 Test it with `gulp serve:dist`:
 
-Oooops: You might encounter this weird error.
+Oooops: You might encounter some weird error like this: `Error: [$injector:unpr] Unknown provider: e`
+So what happened? Angular comes with **dependency injection**. When you define the `HelloController($log)` function, you ask angular to inject `$log` service in first parameter.
+Javascript is weakly typed, so angular has no choice but to rely on variable's name to know which service (or which **provider**) to inject. But when uglifying the code, your `$log` parameter has been renamed to `e`, that breaks dependency injection.
+ - Fix up dependency injection with uglification.
+ - Enable [strict-di mode](https://docs.angularjs.org/api/ng/directive/ngApp), to never let this error happen again when you have tons of functions, and you won't know which one is broken.
+
+### 3. 404 Not found.
+Import static view 404.html, and create a `app.route.js` file that define a state `404` bound to URL `/404` that shows the error page. This state is triggered by configuration at `app.config.js:26`
+
+> How did you installed bootstrap?
 
 
-> Never write CSS browser prefixes. That is code noise! If you need your application to be compatible with old browsers, use a plugin that post-process CSS for you.
+### 4. First true module: Dashboard
+
+Create a new module `app.dashboard`, then import static views into it.
+
+
+> Have you seen those `/* @ngInject */` all around source files?
 
 
 
-Let's build our first module
-
-We are going to create out first
-
-
-
-> Have you seen those `/* @ngInject */` ?
