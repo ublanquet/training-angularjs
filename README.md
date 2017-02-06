@@ -1,3 +1,7 @@
+# ************
+This is a work in progress. Any comment or contribution is welcome.
+# ************
+
 # Training: computer-database angularJS
 
 This tutorial will guide you through the creation of dedicated web application written with the [AngularJS](https://angularjs.org/) framework.
@@ -41,6 +45,8 @@ You may want to disable Spring security, or if you use basic auth, you can provi
         'Authorization': 'Basic ' + btoa(username + ":" + password)
     }
 ```
+
+> Does your GET /computer return the complete company within computer or just its id?
 
 ## Introduction:
 
@@ -150,7 +156,6 @@ app/hello/hello.scss
 
 > Never write CSS browser prefixes. That is code noise! If you need your application to be compatible with old browsers, use a plugin that post-process CSS for you.
 
-
 ### 2. Build project
 Run `gulp build` to build the project. Building a web project often involves optimising the sources & resources.
 This gulp setup is configured to lint the code, minimize & uglify javascript sources, optimise images, concatenate all html files within angular's [templateCache](https://docs.angularjs.org/api/ng/service/$templateCache), process SCSS files to optimized & prefixed CSS, ... 
@@ -164,17 +169,68 @@ Javascript is weakly typed, so angular has no choice but to rely on variable's n
  - Enable [strict-di mode](https://docs.angularjs.org/api/ng/directive/ngApp), to never let this error happen again when you have tons of functions, and you won't know which one is broken.
 
 ### 3. 404 Not found.
-Import static view 404.html, and create a `app.route.js` file that define a state `404` bound to URL `/404` that shows the error page. This state is triggered by configuration at `app.config.js:26`
+Import static view `404.html`, and create a `app.route.js` file that define a state `404` bound to URL `/404` that shows the error page. This state is triggered by configuration at `app.config.js:26`
 
-> How did you installed bootstrap?
-
+ - How did you installed bootstrap?
 
 ### 4. First true module: Dashboard
 
-Create a new module `app.dashboard`, then import static views into it.
+Create a new module `app.dashboard`, then import static views `addComputer.html`, `editComputer.html` & `dashboard.html` into it.
+Create a new component `dashboard` with its state `dashboard`, bound to both `/dashboard` and `/` routes.
+Create a [service or a factory](https://docs.angularjs.org/guide/providers) that uses [$http](https://docs.angularjs.org/api/ng/service/$http) against your java back-end.
+
+> It is generally a bad idea to call directly `$http` within controllers. Always prefer to write a dedicated service for that.
+
+> Do not hard code the api uri within your source code. You could use an angular [value or constant](https://docs.angularjs.org/guide/providers) to hold the configuration.
+In javascript, there is no standard for switchable configuration like 'app.properties', but your gulp setup support this option : Just override `src/env/dev-conf.js` to define variables picked-up by `gulp serve`.
 
 
-> Have you seen those `/* @ngInject */` all around source files?
+
+- Naming convention apart, any idea why we name files `some.module.js`, `some.service.js` or `some.config.js` ?
+- Have you seen those `/* @ngInject */` all around source files?
+- Any way to prevent copy-pasting of `<header></header>` across `dashboard.html`, `editComputer.html` & `addComputer.html` ?
+- How to deal with boring url concatenation?
+- What is the `track by` clause for `ng-repeat`?
+- What is binding `<div>{{`**::**`item.name}}</div>` for?
+
+### 5. Components
+Create a new component to display the pagination element.
+
+ - Differences between component and directive?
 
 
+### 6. Models
 
+Have you seen the release date & discontinuation date on dashboard ? It is displayed as a string, which will cause some troubles if you want to localise your application.
+Javascript `Date` object has some useful localisation capabilities, and it could be interesting to take advantage of it, but we don't want to convert Date from / to string each time we need it in the application.
+When applications get more complex, you may be limited if all your front-end layers work with the back-end formatted DTO, especially if you want to attach some behavior to objects.
+Write a `computer.model.js` that defines a class Computer. This class should be mapped from / to back-end computer dto.
+Use it to display localized dates on dashboard.
+
+- Where is handled the mapping ?
+
+### 7. i18n
+When you want your application to be international, consider addressing the i18n concern as soon as possible, or you'll have a lot of fun searchingfor all remaining hard-coded strins that stills require translation.
+There are few translation library for angular out of there. I recommend using [angular-translate](https://angular-translate.github.io/) because it is simple but full-featured.
+To save up time, your gulp setup is already configured to handle internationalization files.
+By default, it will search within `src/resources/i18n` for files named `xx.json` (where xx is the country code) to know supported languages.
+Then, any `**/i18n/xx.json` will be merged to the corresponding file at build time. This mean that any of your module can come with its own `resource/i18n/xx.json` files, so that you don't  have a giant single file that contains translations for the whole application.
+
+
+### 8. Forms
+TODO
+Write edit & add computer
+Use ng-message to display errors
+
+### 9. Tests
+TODO karma, jasmine, protractor
+
+### 10. CSS
+TODO
+Replace bootstrap with another CSS framework of your choice.
+
+Guidelines:
+- Use a limited and welldefined color scheme. Avoid using colors / dimens / whatever that isnot defined once for all in a kind of 'constants.scss'
+- Be consistent in variable & class naming
+- use `@mixin`
+- use `display: flex`

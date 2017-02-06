@@ -63,11 +63,11 @@ This process involves the following steps :
  - copy all resources into dist/ folder
  - optimize images.
 
->Note that build will fails if vet reports some errors. `gulp buid --no-vet` can skip code linting.
+> Note that build will fails if vet reports some errors. `gulp buid --no-vet` can skip code linting.
 
->You can create any build profile: Just create env/my-profile-conf.js, and you can build your application using this profile with `gulp build:my-profile`
+> You can create any build profile: Just create env/my-profile-conf.js, and you can build your application using this profile with `gulp build:my-profile`
 
->Any gulp task can be run with **--verbose** or **--debug** option to get a more complete trace.
+> Any gulp task can be run with **--verbose** or **--debug** option to get a more complete trace.
 
 ## Exploring
 
