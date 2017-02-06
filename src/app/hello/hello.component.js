@@ -7,6 +7,7 @@
             controller: HelloController
         });
 
+    HelloController.$inject = ['$log'];
     function HelloController($log) {
         // jshint validthis: true
         const vm = this;

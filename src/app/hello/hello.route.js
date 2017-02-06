@@ -4,6 +4,7 @@
         .module('app')
         .config(routesConfig);
 
+    routesConfig.$inject = ['$stateProvider'];
     function routesConfig($stateProvider) {
         $stateProvider
             .state('app', {
