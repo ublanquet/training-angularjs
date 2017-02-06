@@ -97,6 +97,7 @@ function injectIndex(injectTag, reload, cb) {
     return gulp.src(dstIndex)
     // .pipe(changed(conf.path.tmp()))
         .pipe(debug.tap('injectIndex'))
+        .pipe(plumber()) // exit gracefully if something fails after this
         .pipe(gulpInject(gulp.src(cache.get(injectTag), {base: '.'}), injectOptions))
         .pipe(wiredep(Object.assign({}, conf.wiredep)))
         .pipe(gulp.dest(conf.paths.tmp))
