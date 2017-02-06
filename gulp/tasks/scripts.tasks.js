@@ -6,7 +6,6 @@ const plumber = require('gulp-plumber');
 const typescript = require('gulp-typescript');
 
 const changed = require('gulp-changed');
-const ngAnnotate = require('gulp-ng-annotate');
 const gulpInject = require('gulp-inject');
 
 const browserSync = require('browser-sync');
@@ -73,7 +72,6 @@ function ts(jsOrder, injectTag, cb) {
         .pipe(babel({
             extends: conf.path.rootDir('.babelrc')
         }))
-        .pipe(ngAnnotate())
         .pipe(sourcemaps.write('maps'))
         .pipe(gulp.dest(conf.path.tmp()))
         .on('finish', cb);
