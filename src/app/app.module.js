@@ -4,7 +4,8 @@
         'ngAnimate',
         'ui.router',
         'blocks',
-        'app.hello'
+        'app.hello',
+        'app.dashboard'
     ]);
 
 })();
