@@ -25,22 +25,31 @@ gulp.task('watch', watch);
 
 // build
 gulp.task(`build`, gulp.series('clean:dist', 'clean', 'partials', 'resources', 'scripts', 'styles', 'vet', 'build'));
-flavorList().forEach(flavor =>
-    gulp.task(`build:${flavor}`, gulp.series(cb => setEnv(cb, flavor), 'build'))
-);
+for (let flavor of flavorList()) {
+    gulp.task(`build:${flavor}`, gulp.series((cb) => {
+        setEnv(cb, flavor);
+    }, 'build'));
+}
 
 // text
-gulp.task('test', gulp.series(cb => setEnv(cb, 'test'), 'clean', 'scripts', 'partials', 'karma:single-run'));
+gulp.task('test', gulp.series((cb) => {
+        setEnv(cb, 'test');
+    },
+    'clean', 'scripts', 'partials', 'karma:single-run'));
 
 // test auto
-gulp.task('test:auto', gulp.series(cb => setEnv(cb, 'test'),
+gulp.task('test:auto', gulp.series((cb) => {
+        setEnv(cb, 'test');
+    },
     'clean', 'scripts', 'partials', 'watch', 'karma:auto-run'));
 
 // serve
-gulp.task('serve', gulp.series(
-    'clean', cb => setEnv(cb, 'dev'), 'scripts', 'styles',
-    gulp.parallel('resources:i18n'), 'watch', 'browsersync'));
-
+gulp.task('serve', gulp.series('clean',
+    (cb) => {
+        setEnv(cb, 'dev');
+    },
+    gulp.parallel('scripts', 'styles', 'resources:i18n'),
+    'watch', 'browsersync'));
 gulp.task('serve:dist', gulp.series('browsersync:dist'));
 
 function reloadBrowserSync(cb) {
@@ -83,6 +92,7 @@ function watch(done) {
     // watch ts/js => scripts
     gulp.watch([
             conf.path.app('**/*.{ts,js}'),
+            conf.path.config('**/*.{ts,js}'),
             conf.path.env('**/*.{ts,js}'),
             'bower.json'],
         gulp.series('scripts'))

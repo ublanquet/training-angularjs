@@ -33,7 +33,7 @@ function env(cb) {
     log.i('injecting scripts with conf ' + conf.env.files());
 
     const injectTag = 'env';
-    return ts(conf.env.files(), injectTag, () => {
+    ts(conf.env.files(), injectTag, () => {
         return injectIndex(injectTag, false, cb);
     });
 }
@@ -47,6 +47,7 @@ function scripts(cb) {
     jsPattern = jsPattern.concat(includeSpec ? '**/*.spec.{js,ts}' : '!**/*.spec.{js,ts}');
     let jsOrder = []
         .concat(conf.env.files())
+        .concat(conf.path.config('**/*.js'))  // conf first
         .concat(makeOrder(jsPattern, includeSpec))   // then sources.
         // ignore all plugins, & include enabled ones
         .concat(plugins.files('**/*.{js,ts}'));

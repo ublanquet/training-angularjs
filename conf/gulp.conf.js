@@ -21,6 +21,7 @@ exports.paths = {
     src: 'src/app',
     rootDir: path.join(__dirname, '../'),
     styles: 'src/styles',
+    config: 'src/configuration',
     plugins: 'src/plugins',
     env: 'src/env',
     dist: 'dist',
@@ -100,6 +101,7 @@ exports.sourceOrder = [
     '**/*.value.{js,ts}',
     '**/*.provider.{js,ts}',
     '**/*.config.{js,ts}',
+    '**/*.route.{js,ts}',
     '**/*.decorator.{js,ts}',
     '**/*.directive.{js,ts}',
     '**/*.component.{js,ts}',
@@ -109,7 +111,6 @@ exports.sourceOrder = [
     '**/*.service.{js,ts}',
     '**/*.run.{js,ts}',
     '**/*.controller.{js,ts}',
-    '**/*.route.{js,ts}',
     '**/*.{js,ts}'
 ];
 
