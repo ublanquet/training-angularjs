@@ -22,6 +22,7 @@ function makeCss(cb) {
 
     return gulp.src(files, {base: '.'})
     // .pipe(changed(conf.path.tmp(), {extension: '.css'}))
+        .pipe(plumber()) // exit gracefully if something fails after this
         .pipe(cache('styles', {
             dest: conf.path.tmp(),
             extension: '.css'
@@ -32,7 +33,6 @@ function makeCss(cb) {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(conf.path.tmp()))
         .pipe(browserSync.stream())
-        .pipe(plumber()) // exit gracefully if something fails after this
         .on('finish', cb);
 }
 
