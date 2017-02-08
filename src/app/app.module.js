@@ -4,6 +4,7 @@
         'ngAnimate',
         'ui.router',
         'blocks',
+        'pascalprecht.translate',
         'app.hello',
         'app.dashboard'
     ]);
