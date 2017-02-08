@@ -26,29 +26,18 @@ gulp.task('watch', watch);
 // build
 gulp.task(`build`, gulp.series('clean:dist', 'clean', 'partials', 'resources', 'scripts', 'styles', 'vet', 'build'));
 for (let flavor of flavorList()) {
-    gulp.task(`build:${flavor}`, gulp.series((cb) => {
-        setEnv(cb, flavor);
-    }, 'build'));
+    gulp.task(`build:${flavor}`, gulp.series(cb => setEnv(cb, flavor), 'build'));
 }
 
 // text
-gulp.task('test', gulp.series((cb) => {
-        setEnv(cb, 'test');
-    },
-    'clean', 'scripts', 'partials', 'karma:single-run'));
+gulp.task('test', gulp.series(cb => setEnv(cb, 'test'), 'clean', 'scripts', 'partials', 'karma:single-run'));
 
 // test auto
-gulp.task('test:auto', gulp.series((cb) => {
-        setEnv(cb, 'test');
-    },
+gulp.task('test:auto', gulp.series(cb => setEnv(cb, 'test'),
     'clean', 'scripts', 'partials', 'watch', 'karma:auto-run'));
 
 // serve
-gulp.task('serve', gulp.series('clean',
-    (cb) => {
-        setEnv(cb, 'dev');
-    },
-    gulp.parallel('scripts', 'styles', 'resources:i18n'),
+gulp.task('serve', gulp.series('clean', cb => setEnv(cb, 'dev'), 'scripts', 'styles', 'resources:i18n',
     'watch', 'browsersync'));
 gulp.task('serve:dist', gulp.series('browsersync:dist'));
 
