@@ -1,24 +1,10 @@
-(function () {
-    'use strict';
+'use strict';
 
+(function () {
     angular.module('app')
         .config(configureRoutes)
-        .config(configureTranslateProvider)
         .config(toastrConfig)
         .config(configure);
-
-    /* @ngInject */
-    function configureTranslateProvider($translateProvider) {
-        $translateProvider.useStaticFilesLoader({
-            prefix: 'src/resources/i18n/',
-            suffix: '.json'
-        });
-
-        $translateProvider.addInterpolation('$translateMessageFormatInterpolation');
-        $translateProvider.useSanitizeValueStrategy('escapeParameters');
-        $translateProvider.preferredLanguage('fr');
-        $translateProvider.useMissingTranslationHandlerLog();
-    }
 
     /* @ngInject */
     function configureRoutes($urlRouterProvider, $locationProvider) {

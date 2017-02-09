@@ -4,6 +4,7 @@
         "browser": true,
         "jasmine": true
     },
+
     "globals": {
         "angular": true,
         "inject": true,
@@ -18,7 +19,7 @@
         "ecmaVersion": 6
     },
     "rules": {
-        "strict": ["error", "function"],
+        "strict": ["error", "safe"],
         "angular/controller-name": 0
     }
 }

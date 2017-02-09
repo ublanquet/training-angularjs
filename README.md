@@ -167,7 +167,9 @@ So what happened? Angular comes with **dependency injection**. When you define t
 Javascript is weakly typed, so angular has no choice but to rely on variable's name to know which service (or which **provider**) to inject. But when uglifying the code, your `$log` parameter has been renamed to `e`, that breaks dependency injection.
  - Fix up dependency injection with uglification.
  - Enable [strict-di mode](https://docs.angularjs.org/api/ng/directive/ngApp), to never let this error happen again when you have tons of functions, and you won't know which one is broken.
+ - Ensure code generated with `gulp build` works as intended.
 
+> `gulp build` produce a `dist` folder, which is basically what is deployed on a web server. You might notice that this folder contains no html. So, what's the magic?
 ### 3. 404 Not found.
 Import static view `404.html`, and create a `app.route.js` file that define a state `404` bound to URL `/404` that shows the error page. This state is triggered by configuration at `app.config.js:26`
 
