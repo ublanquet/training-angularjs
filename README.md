@@ -209,6 +209,8 @@ Use it to display localized dates on dashboard.
 
 - Where is handled the mapping ?
 
+- How to be able to use the model across the entire application ?
+
 ### 7. i18n
 When you want your application to be international, consider addressing the i18n concern as soon as possible, or you'll have a lot of fun searchingfor all remaining hard-coded strins that stills require translation.
 There are few translation library for angular out of there. I recommend using [angular-translate](https://angular-translate.github.io/) because it is simple but full-featured.
