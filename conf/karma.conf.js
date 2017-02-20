@@ -1,7 +1,7 @@
 const conf = require('./gulp.conf');
 const listFiles = require('./karma-files.conf');
 
-module.exports = function(config) {
+module.exports = function (config) {
     const configuration = {
         basePath: '../',
         singleRun: true,
@@ -15,7 +15,7 @@ module.exports = function(config) {
         ],
         frameworks: [
             'phantomjs-shim',
-            'jasmine',
+            'mocha', 'chai', 'sinon',
             'es6-shim'
         ],
         files: listFiles(),

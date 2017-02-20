@@ -51,6 +51,7 @@ function scripts(cb) {
         // ignore all plugins, & include enabled ones
         .concat(plugins.files('**/*.{js,ts}'));
 
+    log.debug('Script inject order: ' + jsOrder);
     const injectTag = 'scripts';
     return ts(jsOrder, injectTag, () => {
         return injectIndex(injectTag, true, cb);

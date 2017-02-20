@@ -2,6 +2,7 @@
 'use strict';
 
 describe('hello component', () => {
+
     beforeEach(module('app', $provide => {
         $provide.factory('hello', () => {
             return {
@@ -13,6 +14,6 @@ describe('hello component', () => {
         const element = $compile('<hello>Loading...</hello>')($rootScope);
         $rootScope.$digest();
         const h1 = element.find('h1');
-        expect(h1.html()).toEqual('Hello World!');
+        expect(h1.html()).to.be.equals('Hello World!');
     }));
 });
