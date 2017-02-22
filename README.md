@@ -69,18 +69,17 @@ There is many tools front-end developpers are familiar with, to use in their sta
  - A styling framework.
     - angular-material, bootstrap, paperkit, polymer...
  - An IDE
-    - Intellij ultimate, Nodeclipse) or an 'advanced text editor' (Visual Studio Code, Atom, Brackets. Intellij community eddition **not** recommended,no javascript support.
+    - Intellij ultimate, Nodeclipse, or an 'advanced text editor' (Visual Studio Code, Atom, Brackets. Intellij community eddition **not** recommended,no javascript support.
 
 This tutorial, we will rely on the following stack: 
  - Package manager : **NPM (v4) + bower**
  - Task runner : **Gulp (v4)**
  - Transpiller : **Babel**
  - language: **ES6 (= ES2015)**
- - framework: **AngularJS 1.6)
- - test framework: **karma**
- - styling language: **scss**
+ - framework: **AngularJS (1.6)**
+ - test framework: **mocha, chai & sinon**
+ - styling language: **scss** (TO DO)
  - styling framework: **Bootstrap** 
- - ide: **Webstorm**
 
 ## Setup the environment.
 
@@ -113,7 +112,9 @@ Here is the project structure
 
 > Why do we get 2 dependencies manager ?
 
-More details on gulp usage in README_GUP.md
+> Today's project tend to drop bower, in profit a Webpack based, npm only project.
+
+More details on gulp usage in README_GULP.md
 
 ## Get started
 
@@ -147,14 +148,14 @@ app/hello/hello.module.js
 app/hello/hello.route.js
 app/hello/hello.component.js
 app/hello/hello.spec.js
-app/hello/hello.scss
+app/hello/hello.css
 ```
 
-> It is a good idea to let modules come with their own routes, rather than defining a single 'routes.js' that list all existing routes of the app.
+> It is a good idea to let modules come with their own routes, rather than defining a single `routes.js` that list all existing routes of the app.
 
-> How to ensure that hello.scss style does apply only to hello component?
+> How to ensure that hello.css style does only apply to hello component?
 
-> Never write CSS browser prefixes. That is code noise! If you need your application to be compatible with old browsers, use a plugin that post-process CSS for you.
+> Never write CSS browser prefixes. That is code noise! If you need your application to be compatible with old browsers, use a plugin like [autoprefixer](https://www.npmjs.com/package/autoprefixer) that post-process CSS for you.
 
 ### 2. Build project
 Run `gulp build` to build the project. Building a web project often involves optimising the sources & resources.
@@ -186,14 +187,12 @@ Create a [service or a factory](https://docs.angularjs.org/guide/providers) that
 > Do not hard code the api uri within your source code. You could use an angular [value or constant](https://docs.angularjs.org/guide/providers) to hold the configuration.
 In javascript, there is no standard for switchable configuration like 'app.properties', but your gulp setup support this option : Just override `src/env/dev-conf.js` to define variables picked-up by `gulp serve`.
 
-
-
 - Naming convention apart, any idea why we name files `some.module.js`, `some.service.js` or `some.config.js` ?
 - Have you seen those `/* @ngInject */` all around source files?
 - Any way to prevent copy-pasting of `<header></header>` across `dashboard.html`, `editComputer.html` & `addComputer.html` ?
 - How to deal with boring url concatenation?
 - What is the `track by` clause for `ng-repeat`?
-- What is binding `<div>{{`**::**`item.name}}</div>` for?
+- What is the purpose of binding `<div>{{`**::**`item.name}}</div>`?
 
 ### 5. Components
 Create a new component to display the pagination element.
@@ -220,6 +219,29 @@ To save up time, your gulp setup is already configured to handle internationaliz
 By default, it will search within `src/resources/i18n` for files named `xx.json` (where xx is the country code) to know supported languages.
 Then, any `**/i18n/xx.json` will be merged to the corresponding file at build time. This mean that any of your module can come with its own `resource/i18n/xx.json` files, so that you don't  have a giant single file that contains translations for the whole application.
 
+### 8. Scss
+Nobody today want tu use plain old CSS when languages like LESS or SASS are around. These two technologies are quite similar, and they allow cleaner and easier to maintain code, that is backward compatible with CSS.
+But browsers support no language other than CSS, so Less or Sass should be converted into CSS when packaging your app.
+
+At the moment, your gulp setup uses task `gulp styles`, defined in `gulp/styles.task.js` to convert css... into css. Enhance this task to make gulp able to process css AND scss files.
+Some useful plugins you should use (some of them are allready installed with your setup):
+
+- (gulp-sourcemaps)[https://www.npmjs.com/package/gulp-sourcemaps]
+- (gulp-sass)[https://www.npmjs.com/package/gulp-sass]
+- (gulp-postcss)[https://github.com/postcss/gulp-postcss]
+- (autoprefixer)[https://github.com/postcss/autoprefixer]
+- (gulp-inject)[https://www.npmjs.com/package/gulp-inject]
+- (gulp-plumber)[https://www.npmjs.com/package/gulp-plumber]
+
+> One big disadvantage of gulp commpared to ie Webpack is its slow and painfull configuration.
+If you want something to get done, you have to wire it up by yourself, rather than registering webpack plugins that do stuff automagically.
+But it allow a great flexibility, and it can be easier to debug.
+
+> Tip: Have some troubles with sass processing ? Go have a look in `.tmp/` folder to ensure css files are generated at the proper place.
+Have some troubles applying the styles ? Have a look to `.tmp/index.html` to see if css is injected properly, with the right path.
+
+- What is gulp inject for? How does it work?
+
 
 ### 8. Forms
 TODO
@@ -227,14 +249,14 @@ Write edit & add computer
 Use ng-message to display errors
 
 ### 9. Tests
-TODO karma, jasmine, protractor
+TODO karma, mocha, protractor
 
 ### 10. CSS
 TODO
 Replace bootstrap with another CSS framework of your choice.
 
 Guidelines:
-- Use a limited and welldefined color scheme. Avoid using colors / dimens / whatever that isnot defined once for all in a kind of 'constants.scss'
+- Use a limited and well defined color scheme. Avoid using colors / dimens / whatever that isnot defined once for all in a kind of 'constants.scss'
 - Be consistent in variable & class naming
 - use `@mixin`
 - use `display: flex`

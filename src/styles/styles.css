@@ -1,0 +1,26 @@
+body {
+    background-color: red;
+    overflow: hidden;
+    font-family: 'Open Sans', sans-serif;
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+ui-view {
+    display: block;
+    height: 100%;
+}
+
+a, *[ng-click], *[ui-sref] {
+    cursor: pointer;
+}
+
+* {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+a {
+    cursor: pointer;
+}
