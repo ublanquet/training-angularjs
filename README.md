@@ -1,7 +1,3 @@
-# ************
-This is a work in progress. Any comment or contribution is welcome.
-# ************
-
 # Training: computer-database angularJS
 
 This tutorial will guide you through the creation of dedicated web application written with the [AngularJS](https://angularjs.org/) framework.
@@ -15,12 +11,12 @@ In order to start on strong bases, let's assert the following :
  - You know what is a REST api.
  - Your REST api is Stateless
  - Your REST api provides pagination capabilities through query parameters.
- - Your REST api produces JSON, an is [REST-compliant](http://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/)
+ - Your REST api produces JSON, and is [REST-compliant](http://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/)
    Don't put verbs within URL. *Only* names in plural form. Use HTTP Methods.
  - Your REST api throws reliable [HTTP status](https://fr.wikipedia.org/wiki/Liste_des_codes_HTTP) in case of errors.
-   ie : `api/computers/42` should return 404 ifcomputer with id 42 doesn't exists.
+   ie : `api/computers/42` should return 404 if computer with id 42 doesn't exists.
  - You know how to use solutions like [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) (or curl, for the warriors).
-
+ - You have basic knowledge of HTML & CSS.
 
 Exemple of *bad* REST apis
 ```
@@ -241,7 +237,6 @@ But it allow a great flexibility, and it can be easier to debug.
 Have some troubles applying the styles ? Have a look to `.tmp/index.html` to see if css is injected properly, with the right path.
 
 - What is gulp inject for? How does it work?
-
 
 ### 8. Forms
 TODO
