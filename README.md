@@ -147,11 +147,9 @@ app/hello/hello.spec.js
 app/hello/hello.css
 ```
 
-> It is a good idea to let modules come with their own routes, rather than defining a single `routes.js` that list all existing routes of the app.
-
-> How to ensure that hello.css style does only apply to hello component?
-
-> Never write CSS browser prefixes. That is code noise! If you need your application to be compatible with old browsers, use a plugin like [autoprefixer](https://www.npmjs.com/package/autoprefixer) that post-process CSS for you.
+- It is a good idea to let modules come with their own routes, rather than defining a single `routes.js` that list all existing routes of the app.
+- How to ensure that hello.css style does only apply to hello component?
+-  Never write CSS browser prefixes. That is code noise! If you need your application to be compatible with old browsers, use a plugin like [autoprefixer](https://www.npmjs.com/package/autoprefixer) that post-process CSS for you.
 
 ### 2. Build project
 Run `gulp build` to build the project. Building a web project often involves optimising the sources & resources.
@@ -175,10 +173,10 @@ Import static view `404.html`, and create a `app.route.js` file that define a st
 ### 4. First true module: Dashboard
 
 Create a new module `app.dashboard`, then import static views `addComputer.html`, `editComputer.html` & `dashboard.html` into it.
-Create a new component `dashboard` with its state `dashboard`, bound to both `/dashboard` and `/` routes.
+Give it a new component named `dashboard`, accessible through the state `dashboard`, bound to both `/dashboard` and `/` routes.
 Create a [service or a factory](https://docs.angularjs.org/guide/providers) that uses [$http](https://docs.angularjs.org/api/ng/service/$http) against your java back-end.
 
-> It is generally a bad idea to call directly `$http` within controllers. Always prefer to write a dedicated service for that.
+> It is generally a bad idea to call `$http` straight from controllers. Always prefer to write a dedicated service for that.
 
 > Do not hard code the api uri within your source code. You could use an angular [value or constant](https://docs.angularjs.org/guide/providers) to hold the configuration.
 In javascript, there is no standard for switchable configuration like 'app.properties', but your gulp setup support this option : Just override `src/env/dev-conf.js` to define variables picked-up by `gulp serve`.
@@ -222,15 +220,15 @@ But browsers support no language other than CSS, so Less or Sass should be conve
 At the moment, your gulp setup uses task `gulp styles`, defined in `gulp/styles.task.js` to convert css... into css. Enhance this task to make gulp able to process css AND scss files.
 Some useful plugins you should use (some of them are allready installed with your setup):
 
-- (gulp-sourcemaps)[https://www.npmjs.com/package/gulp-sourcemaps]
-- (gulp-sass)[https://www.npmjs.com/package/gulp-sass]
-- (gulp-postcss)[https://github.com/postcss/gulp-postcss]
-- (autoprefixer)[https://github.com/postcss/autoprefixer]
-- (gulp-inject)[https://www.npmjs.com/package/gulp-inject]
-- (gulp-plumber)[https://www.npmjs.com/package/gulp-plumber]
+- [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps)
+- [gulp-sass](https://www.npmjs.com/package/gulp-sass)
+- [gulp-postcss](https://github.com/postcss/gulp-postcss)
+- [autoprefixer](https://github.com/postcss/autoprefixer)
+- [gulp-inject](https://www.npmjs.com/package/gulp-inject)
+- [gulp-plumber](https://www.npmjs.com/package/gulp-plumber)
 
-> One big disadvantage of gulp commpared to ie Webpack is its slow and painfull configuration.
-If you want something to get done, you have to wire it up by yourself, rather than registering webpack plugins that do stuff automagically.
+> One big disadvantage of gulp over ie Webpack is its slow and painfull configuration.
+If you want to get something done, you have to wire it up by yourself, rather than registering some webpack plugins that do stuff automagically.
 But it allow a great flexibility, and it can be easier to debug.
 
 > Tip: Have some troubles with sass processing ? Go have a look in `.tmp/` folder to ensure css files are generated at the proper place.
@@ -238,8 +236,20 @@ Have some troubles applying the styles ? Have a look to `.tmp/index.html` to see
 
 - What is gulp inject for? How does it work?
 
+### 8. Sub views.
+The standard way of using views with AngularJS if through the **\<ng-view>** directive. This is a placeholder that will be populated with the current view by Angular.
+Your project rather uses [angular-ui-router](https://ui-router.github.io/ng1/), a powerfull alternative that allows sub-views.
+That is, rather than having a single **\<ng-view>** for the entire application, you can have multiple nested **\<ui-view>**, to populate parent & nested views.
+
+We will use this to create an abstract root state named `shell`, responsible of drawing all the common controls (in our case, this is limited to the header).
+Make the state `dashboard` a child of `shell`.
+
 ### 8. Forms
-TODO
+
+Time to write a component to handle computer creation & edition.
+Cr
+Create a new route `dashboard.edit`
+
 Write edit & add computer
 Use ng-message to display errors
 
