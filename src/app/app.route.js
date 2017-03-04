@@ -7,9 +7,15 @@
     routesConfig.$inject = ['$stateProvider'];
     function routesConfig($stateProvider) {
         $stateProvider
-            .state('404', {
+            .state('shell.404', {
                 url: '/404',
                 templateUrl: '404.html'
+            });
+
+        $stateProvider
+            .state('shell', {
+                abstract: true,
+                component: 'cdbShell'
             });
     }
 })();

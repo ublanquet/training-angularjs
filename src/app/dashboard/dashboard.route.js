@@ -7,19 +7,13 @@
     /* @ngInect */
     function routesConfig($stateProvider) {
         $stateProvider
-            .state('dashboard', {
+            .state('shell.dashboard', {
                 url: '/dashboard',
                 component: 'dashboard'
             })
-            .state('default', {
+            .state('shell.default', {
                 url: '/',
-                controller: RedirectController,
-                controllerAs: '$ctrl'
+                component: 'dashboard'
             });
-    }
-
-    /* @ngInject */
-    function RedirectController($state) {
-        $state.go('dashboard');
     }
 })();
