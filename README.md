@@ -133,7 +133,7 @@ It is bootstraped by the [ng-app](https://docs.angularjs.org/api/ng/directive/ng
 
 ### 1. First module - Hello module
 
-Rewrite the actual code, to create a new AngularJS module named `app.hello`, that define a component `hello`.
+Rewrite the actual code, to create a new AngularJS module named `app.hello`, that define a component `cdbHello`.
 This component is reachable through the state named `hello`, bound to the url `/hello`
 In order to let `app` module using the new `app.hello` module, don't forget to add it as a dependency in `hello.component.js`.
 Add some style to this component (ie: title in red)
@@ -149,7 +149,9 @@ app/hello/hello.css
 
 - It is a good idea to let modules come with their own routes, rather than defining a single `routes.js` that list all existing routes of the app.
 - How to ensure that hello.css style does only apply to hello component?
--  Never write CSS browser prefixes. That is code noise! If you need your application to be compatible with old browsers, use a plugin like [autoprefixer](https://www.npmjs.com/package/autoprefixer) that post-process CSS for you.
+- Never write CSS browser prefixes. That is code noise! If you need your application to be compatible with old browsers, use a plugin like [autoprefixer](https://www.npmjs.com/package/autoprefixer) that post-process CSS for you.
+
+> A common practise is to prefix your component with a short namespace related to the project. This way, when you see `<cdb-hello></cdb-hello>`, you know you are using one of your custom components.
 
 ### 2. Build project
 Run `gulp build` to build the project. Building a web project often involves optimising the sources & resources.
@@ -173,7 +175,7 @@ Import static view `404.html`, and create a `app.route.js` file that define a st
 ### 4. First true module: Dashboard
 
 Create a new module `app.dashboard`, then import static views `addComputer.html`, `editComputer.html` & `dashboard.html` into it.
-Give it a new component named `dashboard`, accessible through the state `dashboard`, bound to both `/dashboard` and `/` routes.
+Give it a new component named `cdbDashboard`, accessible through the state `dashboard`, bound to both `/dashboard` and `/` routes.
 Create a [service or a factory](https://docs.angularjs.org/guide/providers) that uses [$http](https://docs.angularjs.org/api/ng/service/$http) against your java back-end.
 
 > It is generally a bad idea to call `$http` straight from controllers. Always prefer to write a dedicated service for that.
@@ -236,28 +238,34 @@ Have some troubles applying the styles ? Have a look to `.tmp/index.html` to see
 
 - What is gulp inject for? How does it work?
 
-### 8. Sub views.
+### 9. Sub views.
 The standard way of using views with AngularJS if through the **\<ng-view>** directive. This is a placeholder that will be populated with the current view by Angular.
 Your project rather uses [angular-ui-router](https://ui-router.github.io/ng1/), a powerfull alternative that allows sub-views.
 That is, rather than having a single **\<ng-view>** for the entire application, you can have multiple nested **\<ui-view>**, to populate parent & nested views.
 
 We will use this to create an abstract root state named `shell`, responsible of drawing all the common controls (in our case, this is limited to the header).
-Make the state `dashboard` a child of `shell`.
+- Make a new component named `cdbShell`, with its abstract state `shell`
+- Make the state `dashboard` a child of `shell`.
+- Make the state `404` a child of state `shell`.
 
-### 8. Forms
+- How did you made the header's title a link to state `shell.dashboard`?
+
+### 10. Forms
 
 Time to write a component to handle computer creation & edition.
-Cr
-Create a new route `dashboard.edit`
+The tricky part here is to have two states handled by a single component either 'populated' with a new computer or an existing one.
 
-Write edit & add computer
-Use ng-message to display errors
+The idea is to make our state accept a parameter that will feed the controller, as described [here](https://medium.com/@nikjohn/angular-js-ui-router-passing-objects-between-states-158e0fbe2a4c#.717t3e575).
 
-### 9. Tests
+- Create 2 new states `shell.dashboard.edit` & `shell.dashboard.new` The id of edited computer should be present in URL, thus allowing to directly go to edit one computer without going through the dashboard.
+- Use `$state.go(..., selectedComputer)` to activate the state with selected computer.
+- use `state: {..., resolve: () => {...} }` to fetch the requested edited computer, in case it is not already fetched (we access 'edit' directly from URL).
+- Use ng-message to display errors.
+
+### 11. Tests
 TODO karma, mocha, protractor
 
-### 10. CSS
-TODO
+### 12. CSS
 Replace bootstrap with another CSS framework of your choice.
 
 Guidelines:
