@@ -198,7 +198,7 @@ Create a new component to display the pagination element.
 
 ### 6. Models
 
-Have you seen the release date & discontinuation date on dashboard ? It is displayed as a string, which will cause some troubles if you want to localise your application.
+Have you seen the introduced date & discontinued date on dashboard ? It is displayed as a string, which will cause some troubles if you want to localise your application.
 Javascript `Date` object has some useful localisation capabilities, and it could be interesting to take advantage of it, but we don't want to convert Date from / to string each time we need it in the application.
 When applications get more complex, you may be limited if all your front-end layers work with the back-end formatted DTO, especially if you want to attach some behavior to objects.
 Write a `computer.model.js` that defines a class Computer. This class should be mapped from / to back-end computer dto.
@@ -207,6 +207,11 @@ Use it to display localized dates on dashboard.
 - Where is handled the mapping ?
 
 - How to be able to use the model across the entire application ?
+
+
+### Code Review (t0 + 2 days)
+Global Architecture, scopes, controllers vs services vs components vs directives, Gulp, payload size?  
+TODO: precise after first CR
 
 ### 7. i18n
 When you want your application to be international, consider addressing the i18n concern as soon as possible, or you'll have a lot of fun searchingfor all remaining hard-coded strins that stills require translation.
@@ -220,7 +225,7 @@ Nobody today want tu use plain old CSS when languages like LESS or SASS are arou
 But browsers support no language other than CSS, so Less or Sass should be converted into CSS when packaging your app.
 
 At the moment, your gulp setup uses task `gulp styles`, defined in `gulp/styles.task.js` to convert css... into css. Enhance this task to make gulp able to process css AND scss files.
-Some useful plugins you should use (some of them are allready installed with your setup):
+Some useful plugins you should use (some of them are already installed with your setup):
 
 - [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps)
 - [gulp-sass](https://www.npmjs.com/package/gulp-sass)
@@ -273,3 +278,7 @@ Guidelines:
 - Be consistent in variable & class naming
 - use `@mixin`
 - use `display: flex`
+
+### Code Review (t0 + 4 days)
+Global architecture, build cycle, integration in CI, event-driven?, browser compatibility, test-coverage, i18n, Pagespeed, Metadata, i18n & SEO
+TODO: precise after first review
