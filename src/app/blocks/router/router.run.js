@@ -4,6 +4,7 @@
     angular.module('blocks.router')
         .run(configureRouterHelper);
 
+    /* @ngInject */
     function configureRouterHelper($rootScope, $transitions, routerHelper) {
         let handlingStateChangeError = false;
         init();

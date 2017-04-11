@@ -169,7 +169,7 @@ Javascript is weakly typed, so angular has no choice but to rely on variable's n
  - Ensure code generated with `gulp build` works as intended.
  - No need to tell, but code linter should pass/
 
-> `gulp build` produce a `dist` folder, which is basically what is deployed on a web server. You might notice that this folder contains no html. So, what's the magic?
+> `gulp build` produces a `dist` folder, which is basically what is deployed on a web server. You might notice that this folder contains no html. So, what's the magic?
 
 > `gulp build` triggers the linting task. This one ensures that your code complies with code style rules defined by `jsHint`, `esLint`, `JSCS` & `tsLint` configs. Pretty code is not just pretty, it may point out come bugs & make your code easy to read for all your team. You can run the lint task alone with `gulp vet` command.
 
