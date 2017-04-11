@@ -28,10 +28,11 @@ Exemple of *bad* REST apis
 
 Exemple of *better* REST apis
 ```
-    [POST]              host:8080/api/computer
-    [GET]               host:8080/api/computer/12
-    [GET]               host:8080/api/computer/12/company
-    [PUT] / [PATCH]     host:8080/api/computer/12
+    [POST]              host:8080/api/computers             => 201 CREATED
+    [GET]               host:8080/api/computers/12          => 200 OK
+    [GET]               host:8080/api/computers/4200        => 404 NOT FOUND
+    [GET]               host:8080/api/computers/12/company  => 200 OK
+    [PUT] / [PATCH]     host:8080/api/computers/12          => 200 OK
 ```
 
 Also, for the shake of simplicity, let's discard any security concern at the moment, we will consider that REST api is full access to everyone without any authentication.
@@ -165,8 +166,12 @@ Javascript is weakly typed, so angular has no choice but to rely on variable's n
  - Fix up dependency injection with uglification.
  - Enable [strict-di mode](https://docs.angularjs.org/api/ng/directive/ngApp), to never let this error happen again when you have tons of functions, and you won't know which one is broken.
  - Ensure code generated with `gulp build` works as intended.
+ - No need to tell, but code linter should pass/
 
 > `gulp build` produce a `dist` folder, which is basically what is deployed on a web server. You might notice that this folder contains no html. So, what's the magic?
+
+> `gulp build` triggers the linting task. This one ensures that your code complies with code style rules defined by `jsHint`, `esLint`, `JSCS` & `tsLint` configs. Pretty code is not just pretty, it may point out come bugs & make your code easy to read for all your team. You can run the lint task alone with `gulp vet` command.
+
 ### 3. 404 Not found.
 Import static view `404.html`, and create a `app.route.js` file that define a state `404` bound to URL `/404` that shows the error page. This state is triggered by configuration at `app.config.js:26`
 
