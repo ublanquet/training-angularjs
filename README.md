@@ -125,7 +125,7 @@ Run `gulp serve`, and connect your web browser to localhost:3000.
 This task generate intermediate source files within a ".tmp" directory, that is served with "browsersync"
 
 Angular 1.x applications are defined by modules. It is best to see modules as some kind of standalone packages, that references each other to assemble the entire application.
-Contrary to Java packages, AngularJS modules are not constrained by any folder architecture, but we tend to have a single module and all its files (js, styles, html) within its own (sub)directory.
+Contrary to Java packages, AngularJS modules are not tied to any folder architecture, but we tend to keep one module (and all js, styles, html) within per (sub)directory.
 The application is right now is composed of a unique AngularJS module named `app` (`app/app.module.js`). This module is referenced in `hello.js`, which adds to it a component named `hello`.
 It is bootstraped by the [ng-app](https://docs.angularjs.org/api/ng/directive/ngApp) directive, that run and populate the `<ui-view></ui-view>` tag with the current view.
 
