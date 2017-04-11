@@ -87,6 +87,7 @@ This tutorial, we will rely on the following stack:
  3. Install gulp : `sudo npm uninstall -g gulp; sudo npm install -g gulp-cli`
  4. Install bower: `sudo npm install -g bower`
  5. Install bower resolver : `sudo npm install -g bower-npm-resolver`
+ 6. Install local project's local dependencies : `npm install`
 
 You also need a web browser (of course!). Google Chrome (or Chromium) have very good built-in javascript debugger & development tools.
 
