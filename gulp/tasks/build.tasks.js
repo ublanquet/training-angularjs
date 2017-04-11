@@ -6,6 +6,7 @@ const revReplace = require('gulp-rev-replace');
 const uglify = require('gulp-uglify');
 const cssnano = require('gulp-cssnano');
 const sourcemaps = require('gulp-sourcemaps');
+// jshint -W074
 const inject = require('gulp-inject');
 const $if = require('gulp-if');
 const uglifySaveLicense = require('uglify-save-license');

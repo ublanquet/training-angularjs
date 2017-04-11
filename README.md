@@ -158,7 +158,7 @@ app/hello/hello.css
 ### 2. Build project
 Run `gulp build` to build the project. Building a web project often involves optimising the sources & resources.
 This gulp setup is configured to lint the code, minimize & uglify javascript sources, optimise images, concatenate all html files within angular's [templateCache](https://docs.angularjs.org/api/ng/service/$templateCache), process SCSS files to optimized & prefixed CSS, ... 
-Provided code ling passes, a resulting dist/ folder have been generated with optimized code. 
+If code lint succeed, a resulting dist/ folder is generated with optimized code. 
 Test it with `gulp serve:dist`:
 
 Oooops: You might encounter some weird error like this: `Error: [$injector:unpr] Unknown provider: e`
