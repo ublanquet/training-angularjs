@@ -84,7 +84,7 @@ This tutorial, we will rely on the following stack:
     - via your package manager (linux): https://nodejs.org/en/download/package-manager/
     - manual installation: https://nodejs.org/en/
  2. Install npm : `sudo apt-get install npm`
- 3. Install gulp : `sudo npm uninstall -g gulp || sudo npm install gulp-cli`
+ 3. Install gulp : `sudo npm uninstall -g gulp; sudo npm install -g gulp-cli`
  4. Install bower: `sudo npm install -g bower`
  5. Install bower resolver : `sudo npm install -g bower-npm-resolver`
 
