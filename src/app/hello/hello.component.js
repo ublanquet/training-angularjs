@@ -1,12 +1,12 @@
 (function () {
     'use strict';
-
     angular.module('app')
         .component('cdbHello', {
             templateUrl: 'src/app/hello/hello.html',
             controller: HelloController
         });
 
+    /* @ngInject */
     function HelloController($log) {
         // jshint validthis: true
         const vm = this;
