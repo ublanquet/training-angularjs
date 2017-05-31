@@ -9,6 +9,10 @@
             .state('app', {
                 url: '/',
                 component: 'hello'
+            })
+            .state('hello', {
+                url: '/hello',
+                component: 'cdbHello'
             });
     }
 })();

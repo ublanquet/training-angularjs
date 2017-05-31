@@ -2,8 +2,8 @@
     'use strict';
 
     angular.module('app')
-        .component('hello', {
-            templateUrl: 'src/app/hello.html',
+        .component('cdbHello', {
+            templateUrl: 'src/app/hello/hello.html',
             controller: HelloController
         });
 
