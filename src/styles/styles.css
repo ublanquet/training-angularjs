@@ -1,26 +1,31 @@
 body {
-    background-color: red;
-    overflow: hidden;
-    font-family: 'Open Sans', sans-serif;
+    background: #f2f2f2;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
 
-    position: absolute;
-    height: 100%;
+footer {
+    position: fixed;
+    bottom: 0;
     width: 100%;
+    background: #FEFEFE;
+    border-top: 1px solid #CCC;
+    height: 50px;
 }
 
-ui-view {
-    display: block;
-    height: 100%;
+footer .pagination {
+    margin: 5px 0px 0px;
 }
 
-a, *[ng-click], *[ui-sref] {
-    cursor: pointer;
+footer .btn-group {
+    padding-top: 10px;
+    margin: 0px 0px;
+    display: inline-block;
 }
 
-* {
-    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-}
-
-a {
-    cursor: pointer;
+input[type='checkbox'] {
+    margin: 0px;
+    padding: 0px;
+    border-radius: 5px;
+    white-space: nowrap;
 }

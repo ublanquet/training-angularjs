@@ -1,5 +1,5 @@
 env = Object.assign(env, {
-    debug: false,
+    debug: true,
     asserts: true,
     toasterLevel: 'D', // possible values : D(ebug) > I(nfo) > W(arn) > E(rror) > N(one)
     flavor: 'default',

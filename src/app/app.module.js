@@ -4,7 +4,8 @@
         'ngAnimate',
         'ui.router',
         'blocks',
-        'cdbHello'
+        'cdbHello',
+        'cdbDashboard'
     ]);
 
 })();
