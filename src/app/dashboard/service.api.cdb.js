@@ -6,15 +6,7 @@
     function computersApi($http) {
         return {
             list: (callback) => {
-                $http.get(env.api.URL + '/computers')
-
-                $http({
-                    method: 'GET',
-                    url: env.api.URL + '/computers',
-                    headers: {
-                        'Authorization': 'Basic' +  ' dGVzdDp0ZXN0'
-                    },
-                }).then(callback)
+                $http.get(env.api.URL + '/computers').then(callback)
             }
         }
     }
