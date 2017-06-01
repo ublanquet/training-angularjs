@@ -177,6 +177,7 @@ Javascript is weakly typed, so angular has no choice but to rely on variable's n
 Import static view `404.html`, and create a `app.route.js` file that define a state `404` bound to URL `/404` that shows the error page. This state is triggered by configuration at `app.config.js:26`
 
  - How did you installed bootstrap?
+ bower install bootstrap --save
 
 ### 4. First true module: Dashboard
 
@@ -189,12 +190,12 @@ Create a [service or a factory](https://docs.angularjs.org/guide/providers) that
 > Do not hard code the api uri within your source code. You could use an angular [value or constant](https://docs.angularjs.org/guide/providers) to hold the configuration.
 In javascript, there is no standard for switchable configuration like 'app.properties', but your gulp setup support this option : Just override `src/env/dev-conf.js` to define variables picked-up by `gulp serve`.
 
-- Naming convention apart, any idea why we name files `some.module.js`, `some.service.js` or `some.config.js` ?
-- Have you seen those `/* @ngInject */` all around source files?
-- Any way to prevent copy-pasting of `<header></header>` across `dashboard.html`, `editComputer.html` & `addComputer.html` ?
-- How to deal with boring url concatenation?
-- What is the `track by` clause for `ng-repeat`?
-- What is the purpose of binding `<div>{{`**::**`item.name}}</div>`?
+- Naming convention apart, any idea why we name files `some.module.js`, `some.service.js` or `some.config.js` ? easier auto binding/DI ?
+- Have you seen those `/* @ngInject */` all around source files? yep, DI management
+- Any way to prevent copy-pasting of `<header></header>` across `dashboard.html`, `editComputer.html` & `addComputer.html` ?  <ng include>
+- How to deal with boring url concatenation? dunno ?  filter fonction ?
+- What is the `track by` clause for `ng-repeat`? évite de rendre même obj plusisuers fois, en faisant corrspondre obj de la collection en element dom
+- What is the purpose of binding `<div>{{`**::**`item.name}}</div>`? pas compris
 
 ### 5. Components
 Create a new component to display the pagination element.

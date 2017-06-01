@@ -1,13 +1,12 @@
-<header class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="dashboard.html"> Application - Computer Database </a>
-    </div>
-</header>
+<ng-include src="'/src/app/dashboard/header.html'">
+</ng-include>
+
+
 
 <section id="main">
     <div class="container">
         <h1 id="homeTitle">
-            121 Computers found
+            {{$ctrl.page.allPagesItemCount}} Computers found
         </h1>
         <div id="actions" class="form-horizontal">
             <div class="pull-left">
@@ -63,7 +62,7 @@
             </thead>
             <!-- Browse attribute computers -->
             <tbody id="results">
-            <tr ng-repeat="computer in $ctrl.page.list">
+            <tr ng-repeat="computer in $ctrl.page.list track by computer.id">
                 <td class="editMode">
                     <input type="checkbox" name="cb" class="cb" value="{{computer.id}}">
                 </td>
