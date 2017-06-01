@@ -1,15 +1,15 @@
 <ul class="pagination">
-    <li>
+    <li ng-click="$ctrl.previousPage()">
         <a href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
+            <span aria-hidden="true" >&laquo;</span>
         </a>
     </li>
     {{$ctrl.page.maxPage}}
-    <li ng-repeat="pagen in $ctrl.counter($ctrl.page.maxPage) track by $index">
-        <a href="#{{$index}}">{{$index}}</a>
+    <li ng-repeat="pagen in $ctrl.counter($ctrl.page.maxPage) track by $index" ng-class="{active:$index === $ctrl.page.currentPage}">
+        <a href="#{{$index}}" ng-click="$ctrl.getPage($index)">{{$index}}</a>
     </li>
 
-    <li>
+    <li ng-click="$ctrl.previousPage()">
         <a href="#" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
         </a>
@@ -17,7 +17,7 @@
 </ul>
 
 <div class="btn-group btn-group-sm pull-right" role="group" >
-    <button type="button" class="btn btn-default">10</button>
-    <button type="button" class="btn btn-default">50</button>
-    <button type="button" class="btn btn-default">100</button>
+    <button type="button" class="btn btn-default"  ng-click="$ctrl.changeItemPerPage(10)">10</button>
+    <button type="button" class="btn btn-default"  ng-click="$ctrl.changeItemPerPage(50)">50</button>
+    <button type="button" class="btn btn-default"  ng-click="$ctrl.changeItemPerPage(100)">100</button>
 </div>

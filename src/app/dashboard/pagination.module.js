@@ -1,4 +1,4 @@
 (function() {
     'use strict';
-    angular.module('cdbPagination', []);
+    angular.module('cdbPagination', ['service.api.cdb']);
 })();
