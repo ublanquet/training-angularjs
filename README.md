@@ -211,9 +211,9 @@ When applications get more complex, you may be limited if all your front-end lay
 Write a `computer.model.js` that defines a class Computer. This class should be mapped from / to back-end computer dto.
 Use it to display localized dates on dashboard.
 
-- Where is handled the mapping ?
+- Where is handled the mapping ? controller or factory ?
 
-- How to be able to use the model across the entire application ?
+- How to be able to use the model across the entire application ? dunno
 
 
 ### Code Review (t0 + 2 days)
