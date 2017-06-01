@@ -200,7 +200,7 @@ In javascript, there is no standard for switchable configuration like 'app.prope
 ### 5. Components
 Create a new component to display the pagination element.
 
- - Differences between component and directive?
+ - Differences between component and directive? component +propre&simple (c une directive en dessous)), directive + complexe "directive that is triggered by an attribute or CSS class, rather than an element"
 
 
 ### 6. Models
