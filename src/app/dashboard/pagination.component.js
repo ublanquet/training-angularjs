@@ -28,5 +28,23 @@
                 vm.page = response.data;
             });
         }
+
+        vm.nextPage = function nextPage() {
+            var num = vm.page.currentPage + 1;
+            if (num <= vm.page.maxPage) {
+                vm.page = computersApi.getPage(num, (response) => {
+                    vm.page = response.data;
+                });
+            }
+        }
+
+        vm.prevPage = function prevPage() {
+            var num = vm.page.currentPage - 1;
+            if (num >= 0) {
+                vm.page = computersApi.getPage(num, (response) => {
+                    vm.page = response.data;
+                });
+            }
+        }
     }
 })();
