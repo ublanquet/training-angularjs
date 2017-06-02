@@ -1,0 +1,14 @@
+{
+  "title": "Computer-database",
+  "btn.next": "Next",
+  "btn.back": "Previous",
+  "btn.search": "Search",
+  "btn.cancel": "Cancel",
+  "btn.save": "Save",
+  "lbl.loading": "load",
+  "lbl.search": "search",
+  "lbl.save": "save",
+  "err.field-required": "this field is required",
+  "err.field-date-required": "a date is required",
+  "err.field-number-required": "a number is required"
+}

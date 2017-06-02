@@ -5,7 +5,8 @@
         'ui.router',
         'blocks',
         'cdbHello',
-        'cdbDashboard'
+        'cdbDashboard',
+        'pascalprecht.translate'
     ]);
 
 })();
