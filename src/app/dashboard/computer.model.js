@@ -1,6 +1,7 @@
 (function () {
     'use strict';
     angular.module('model.cdb.computer', [])
+        .factory('Company', Company)
         .factory('Computer', Computer);
     /* @ngInject */
     function Computer() {
@@ -23,10 +24,10 @@
          */
         Computer.build = function (data) {
             return new Computer(
-                data.first_name,
-                data.last_name,
-                data.role,
-                Organisation.build(data.organisation) // another model
+                data.id,
+                data.name,
+                data.introduced,
+                Company.build(data.Company) // another model
             );
         };
 
@@ -34,5 +35,33 @@
          * Return the constructor function
          */
         return Computer;
+    }
+
+    /* @ngInject */
+    function Company() {
+        /**
+         * Constructor, with class name
+         */
+        function Company(id, name) {
+            // Public properties, assigned to the instance ('this')
+            this.id = id;
+            this.name = name;
+        }
+
+        /**
+         * Static method, assigned to class
+         * Instance ('this') is not available in static context
+         */
+        Company.build = function (data) {
+            return new Company(
+                data.id,
+                data.name,
+            );
+        };
+
+        /**
+         * Return the constructor function
+         */
+        return Company;
     }
 })();
