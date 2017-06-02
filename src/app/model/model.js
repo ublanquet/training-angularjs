@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('model.cdb.computer', [])
+    angular.module('model.cdb', [])
         .factory('Company', Company)
         .factory('Computer', Computer);
     /* @ngInject */

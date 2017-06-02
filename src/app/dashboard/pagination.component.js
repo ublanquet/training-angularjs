@@ -27,7 +27,7 @@
             vm.page = computersApi.getPage(num, vm.page.nbEntries, (response) => {
                 vm.page = response.data;
             });
-        }
+        };
 
         vm.nextPage = function nextPage() {
             var num = vm.page.currentPage + 1;
@@ -36,7 +36,7 @@
                     vm.page = response.data;
                 });
             }
-        }
+        };
 
         vm.prevPage = function prevPage() {
             var num = vm.page.currentPage - 1;
@@ -45,7 +45,7 @@
                     vm.page = response.data;
                 });
             }
-        }
+        };
 
         vm.setPageSize = function setPageSize(nb) {
             vm.page.nbEntries = nb;
