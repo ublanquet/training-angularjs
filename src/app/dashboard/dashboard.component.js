@@ -52,7 +52,7 @@
 
         function setPageSize(nb) {
             vm.page.nbEntries = nb;
-            vm.page = computersApi.getPage(vm.page.currentPage, vm.page.nbEntries, (response) => {
+            vm.page = computersApi.getPage(0, vm.page.nbEntries, (response) => {
                 vm.page = response.data;
             });
         }

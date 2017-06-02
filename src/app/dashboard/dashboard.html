@@ -67,8 +67,8 @@
                 <td>
                     <a href="editComputer/{{computer.id}}" onclick="">{{computer.name}}</a>
                 </td>
-                <td>{{ computer.introducedTimestamp | date : "dd/MM/yyyy" }} </td>
-                <td>{{ computer.discontinuedTimestamp | date : "dd/MM/yyyy" }}</td>
+                <td>{{ computer.introduced | date : "dd/MM/yyyy" }} </td>
+                <td>{{ computer.discontinued | date : "dd/MM/yyyy" }}</td>
                 <td>{{ computer.company.name }}</td>
             </tr>
 
