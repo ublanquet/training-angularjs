@@ -1,14 +1,14 @@
 <ul class="pagination">
-    <li ng-click="$ctrl.prevPage()">
+    <li ng-click="$ctrl.events.prevPage()">
         <a href="#" aria-label="Previous">
             <span aria-hidden="true" >&laquo;</span>
         </a>
     </li>
     <li ng-repeat="pagen in $ctrl.counter($ctrl.page.maxPage) track by $index" ng-class="{active:$index === $ctrl.page.currentPage}">
-        <a href="#{{$index}}" ng-click="$ctrl.getPage($index)">{{$index}}</a>
+        <a href="#{{$index}}" ng-click="$ctrl.events.getPage($index)">{{$index}}</a>
     </li>
 
-    <li ng-click="$ctrl.nextPage()">
+    <li ng-click="$ctrl.events.nextPage()">
         <a href="#" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
         </a>
@@ -16,7 +16,7 @@
 </ul>
 
 <div class="btn-group btn-group-sm pull-right" role="group" >
-    <button type="button" class="btn btn-default"  ng-click="$ctrl.setPageSize(10)">10</button>
-    <button type="button" class="btn btn-default"  ng-click="$ctrl.setPageSize(50)">50</button>
-    <button type="button" class="btn btn-default"  ng-click="$ctrl.setPageSize(100)">100</button>
+    <button type="button" class="btn btn-default"  ng-click="$ctrl.events.setPageSize(10)">10</button>
+    <button type="button" class="btn btn-default"  ng-click="$ctrl.events.setPageSize(50)">50</button>
+    <button type="button" class="btn btn-default"  ng-click="$ctrl.events.setPageSize(100)">100</button>
 </div>
