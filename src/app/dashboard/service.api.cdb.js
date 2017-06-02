@@ -8,7 +8,9 @@
             list: (callback) => {
                 $http.get(env.api.URL + '/computers').then(callback)
             },
-            getPage: (pageN, callback) => $http.get(`${env.api.URL}/computers`+ '?pageN='+pageN).then(callback),
+            getPage: (pageN, perPage, callback) =>
+                $http.get(`${env.api.URL}/computers` + '?pageN=' + pageN + '&perPage=' + perPage).then(callback),
+
             get: (id, callback) => $http.get(`${env.api.URL}/computers/${id}`).then(callback)
         }
     }

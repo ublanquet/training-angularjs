@@ -213,7 +213,7 @@ Use it to display localized dates on dashboard.
 
 - Where is handled the mapping ? controller or factory ?
 
-- How to be able to use the model across the entire application ? dunno
+- How to be able to use the model across the entire application ? dunno factory and then DI
 
 
 ### Code Review (t0 + 2 days)
