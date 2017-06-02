@@ -2,7 +2,7 @@
     'use strict';
     angular.module('app')
         .component('cdbPagination', {
-            templateUrl: 'src/app/dashboard/pagination.html',
+            templateUrl: 'src/app/pagination/pagination.html',
             controller: PaginationController,
             bindings: {
                 page: '<',
