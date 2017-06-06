@@ -22,7 +22,6 @@
          * Instance ('this') is not available in static context
          */
         Computer.build = function (data) {
-            console.log(data.company);
             return new Computer(
                 data.id,
                 data.name,

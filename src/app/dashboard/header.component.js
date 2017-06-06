@@ -6,13 +6,19 @@
             controller: HeaderController
         });
     /* @ngInject */
-    function HeaderController($log) {
+    function HeaderController($log, $translate) {
         // jshint validthis: true
         const vm = this;
         vm.$onInit = $onInit;
+        vm.changeLanguage = changeLanguage;
+
 
         function $onInit() {
             $log.debug('HeaderController init');
+        }
+
+        function changeLanguage(lang) {
+            $translate.use(lang);
         }
     }
 })();

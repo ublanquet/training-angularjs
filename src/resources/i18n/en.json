@@ -17,5 +17,7 @@
   "lbl.save": "save",
   "err.field-required": "this field is required",
   "err.field-date-required": "a date is required",
-  "err.field-number-required": "a number is required"
+  "err.field-number-required": "a number is required",
+  "BUTTON_LANG_EN": "English",
+  "BUTTON_LANG_FR": "French"
 }

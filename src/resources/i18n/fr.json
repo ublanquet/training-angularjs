@@ -17,5 +17,7 @@
     "lbl.save": "sauvegarder",
     "err.field-required": "ce champ est requis",
     "err.field-date-required": "une date est requise",
-    "err.field-number-required": "un nombre est requis"
+    "err.field-number-required": "un nombre est requis",
+    "BUTTON_LANG_EN": "Anglais",
+    "BUTTON_LANG_FR": "Francais"
 }
