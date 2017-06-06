@@ -27,8 +27,13 @@
             $log.debug('FormController init');
         }
 
-        function save(computer) {
-            computersApi.add()
+        function save() {
+            computersApi.add();
+        }
+
+        function edit() {
+            computersApi.edit(computer);
+            console.log(JSON.stringify(computer));
         }
     }
 })();

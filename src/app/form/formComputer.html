@@ -12,34 +12,34 @@
 
 
 
-                <form action="editComputer" method="POST">
-                    <input type="hidden" value="{{$ctrl.id}}" id="id"/> <!-- TODO: Change this value with the computer id -->
+                <form >
+                    <input type="hidden" value="{{$ctrl.id}}" id="id" ng-model="computer.id"/>
                     <fieldset>
                         <div class="form-group">
                             <label for="computerName" translate>tb.computerName</label>
-                            <input type="text" class="form-control" id="computerName" placeholder="Computer name" value="{{$ctrl.computer.name}}">
+                            <input type="text" class="form-control" id="computerName" placeholder="Computer name" ng-model="$ctrl.computer.name">
                         </div>
                         <div class="form-group">
                             <label for="introduced" translate>tb.intro</label>
-                            <input type="date" class="form-control" id="introduced" placeholder="Introduced date" value="{{ 'with_date'|translate:{ date : $ctrl.computer.introduced} }}">
+                            <input type="date" class="form-control" id="introduced" placeholder="Introduced date" value="{{ 'with_date'|translate:{ date : $ctrl.computer.introduced} }}" ng-model="$ctrl.computer.introduced" >
                         </div>
                         <div class="form-group">
                             <label for="discontinued" translate>tb.disco</label>
-                            <input type="date" class="form-control" id="discontinued" placeholder="Discontinued date" value="{{ 'with_date'|translate:{ date : $ctrl.computer.discontinued} }}">
+                            <input type="date" class="form-control" id="discontinued" placeholder="Discontinued date" value="{{ 'with_date'|translate:{ date : $ctrl.computer.discontinued} }}" ng-model="computer.discontinued">
                         </div>
                         <div class="form-group">
                             <label for="companyId" translate>tb.company</label>
-                            <select class="form-control" id="companyId" >
+                            <select class="form-control" id="companyId" ng-model="computer.companyId">
                                 <option value="0">--</option>
-                                <option ng-repeat="company in $ctrl.companies track by company.id" value="{{company.id}}"   ng-selected="company.id === $ctrl.computer.company.id">
+                                <option ng-repeat="company in $ctrl.companies track by company.id" value="{{company.id}}"   ng-selected="company.id === $ctrl.computer.company.id" >
                                     {{company.name}}
                                 </option>
                             </select>
                         </div>
                     </fieldset>
                     <div class="actions pull-right">
-                        <input type="submit" value="{{'btn.edit' | translate}}" class="btn btn-primary" ng-if="$ctrl.id != undefined">
-                        <input type="submit" value="{{'btn.add' | translate}}" class="btn btn-primary" ng-if="$ctrl.id == undefined">
+                        <input type="submit" value="{{'btn.edit' | translate}}" class="btn btn-primary" ng-if="$ctrl.id != undefined" ng-click="$ctrl.edit()">
+                        <input type="submit" value="{{'btn.add' | translate}}" class="btn btn-primary" ng-if="$ctrl.id == undefined" ng-click="$ctrl.save()">
 
                         or
 

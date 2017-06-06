@@ -36,6 +36,9 @@
         };
 
         function pageMapper(responseData) {
+            /*responseData.data.list = responseData.data.list.map((data) => Computer.mapper(data));
+            return responseData;*/ //to test
+
             var list = [];
             for (var i = 0; i < responseData.data.list.length; i++)
             {
