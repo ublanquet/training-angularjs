@@ -20,17 +20,13 @@
 
     /* @ngInject */
     function i18nConfig($translateProvider) {
-        /*$translateProvider.translations('fr', {
-            'title': 'Hello',
-            'FOO': 'This is a paragraph'
-        });*/
         $translateProvider.useSanitizeValueStrategy(null);
         $translateProvider.registerAvailableLanguageKeys(['en', 'fr']);
         $translateProvider.useStaticFilesLoader({ //need additional bower lib
-            prefix: "src/resources/i18n/",
-            suffix: ".json"
+            prefix: 'src/resources/i18n/',
+            suffix: '.json'
         });
-        $translateProvider.preferredLanguage("fr");
+        $translateProvider.preferredLanguage('fr');
     }
 
     /* @ngInject */

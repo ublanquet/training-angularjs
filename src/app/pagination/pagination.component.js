@@ -17,7 +17,6 @@
         vm.counter = function(num) {
             return new Array(num);
         };
-        vm.hello = "test";
         vm.$onInit = $onInit;
 
         function $onInit() {

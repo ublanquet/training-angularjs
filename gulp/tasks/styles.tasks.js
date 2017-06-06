@@ -4,18 +4,22 @@ const fs = require('fs-extra');
 var inject = require('gulp-inject');
 const conf = require('../../conf/gulp.conf');
 const plumber = require('gulp-plumber');
+const sass = require('gulp-sass');
 
 gulp.task('styles', gulp.series(makeCss, injectCss));
 
 function makeCss(cb) {
     let files = [
         conf.path.src('**/*.css'),
-        conf.path.styles('**/*.css')
+        conf.path.styles('**/*.css'),
+        conf.path.src('**/*.scss'),
+        conf.path.styles('**/*.scss')
     ];
 
     // TODO sass
     return gulp.src(files, {base: '.'})
         .pipe(plumber()) // exit gracefully if something fails after this
+        .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(conf.path.tmp()))
         .pipe(browserSync.stream())
         .on('finish', cb);

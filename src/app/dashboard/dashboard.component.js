@@ -10,7 +10,6 @@
         // jshint validthis: true
         const vm = this;
         vm.page = {};
-        vm.hello = "test";
         vm.$onInit = $onInit;
 
         function $onInit() {
@@ -22,7 +21,7 @@
                     nextPage: nextPage,
                     prevPage: prevPage,
                     setPageSize: setPageSize
-                }
+                };
             });
         }
 

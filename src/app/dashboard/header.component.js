@@ -12,7 +12,6 @@
         vm.$onInit = $onInit;
         vm.changeLanguage = changeLanguage;
 
-
         function $onInit() {
             $log.debug('HeaderController init');
         }

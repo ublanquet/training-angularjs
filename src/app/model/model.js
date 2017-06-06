@@ -14,7 +14,7 @@
             this.name = name;
             this.introduced = introduced == null ? null : new Date(introduced);
             this.discontinued = discontinued == null ? null : new Date(discontinued);
-            this.company= company;
+            this.company = company;
         }
 
         /**
