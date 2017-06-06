@@ -19,5 +19,6 @@
   "err.field-date-required": "a date is required",
   "err.field-number-required": "a number is required",
   "BUTTON_LANG_EN": "English",
-  "BUTTON_LANG_FR": "French"
+  "BUTTON_LANG_FR": "French",
+  "with_date": "{{date|date:'MM/dd/yyyy'}}"
 }

@@ -16,30 +16,34 @@
                     <input type="hidden" value="{{$ctrl.id}}" id="id"/> <!-- TODO: Change this value with the computer id -->
                     <fieldset>
                         <div class="form-group">
-                            <label for="computerName">Computer name</label>
+                            <label for="computerName" translate>tb.computerName</label>
                             <input type="text" class="form-control" id="computerName" placeholder="Computer name" value="{{$ctrl.computer.name}}">
                         </div>
                         <div class="form-group">
-                            <label for="introduced">Introduced date</label>
-                            <input type="date" class="form-control" id="introduced" placeholder="Introduced date">
+                            <label for="introduced" translate>tb.intro</label>
+                            <input type="date" class="form-control" id="introduced" placeholder="Introduced date" value="{{ 'with_date'|translate:{ date : $ctrl.computer.introduced} }}">
                         </div>
                         <div class="form-group">
-                            <label for="discontinued">Discontinued date</label>
-                            <input type="date" class="form-control" id="discontinued" placeholder="Discontinued date">
+                            <label for="discontinued" translate>tb.disco</label>
+                            <input type="date" class="form-control" id="discontinued" placeholder="Discontinued date" value="{{ 'with_date'|translate:{ date : $ctrl.computer.discontinued} }}">
                         </div>
                         <div class="form-group">
-                            <label for="companyId">Company</label>
+                            <label for="companyId" translate>tb.company</label>
                             <select class="form-control" id="companyId" >
                                 <option value="0">--</option>
+                                <option ng-repeat="company in $ctrl.companies track by company.id" value="{{company.id}}"   ng-selected="company.id === $ctrl.computer.company.id">
+                                    {{company.name}}
+                                </option>
                             </select>
                         </div>
                     </fieldset>
                     <div class="actions pull-right">
-                        <input type="submit" value="Edit" class="btn btn-primary" ng-if="$ctrl.id != undefined">
-                        <input type="submit" value="Add" class="btn btn-primary" ng-if="$ctrl.id == undefined">
+                        <input type="submit" value="{{'btn.edit' | translate}}" class="btn btn-primary" ng-if="$ctrl.id != undefined">
+                        <input type="submit" value="{{'btn.add' | translate}}" class="btn btn-primary" ng-if="$ctrl.id == undefined">
 
                         or
-                        <a href="/dashboard" class="btn btn-default">Cancel</a>
+
+                        <a href="/dashboard" class="btn btn-default" translate>btn.cancel</a>
                     </div>
                 </form>
             </div>

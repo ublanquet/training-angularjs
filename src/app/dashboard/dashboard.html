@@ -65,15 +65,12 @@
                     <input type="checkbox" name="cb" class="cb" value="{{computer.id}}">
                 </td>
                 <td>
-                    <a href="editComputer/{{computer.id}}" onclick="">{{computer.name}}</a>
+                    <a href="edit/{{computer.id}}" onclick="">{{computer.name}}</a>
                 </td>
-                <td>{{ computer.introduced | date : "dd/MM/yyyy" }} </td>
-                <td>{{ computer.discontinued | date : "dd/MM/yyyy" }}</td>
+                <td>{{ 'with_date'|translate:{ date : computer.introduced} }} </td>
+                <td>{{ 'with_date'|translate:{ date : computer.discontinued} }}</td>
                 <td>{{ computer.company.name }}</td>
             </tr>
-
-
-
             </tbody>
         </table>
     </div>

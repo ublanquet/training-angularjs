@@ -13,13 +13,22 @@
         vm.id = $stateParams.id;
 
         if (vm.id != undefined) { // if id undefined, add state, else edit state
-            vm.computer = computersApi.get(vm.id, (response) => {
+            computersApi.get(vm.id, (response) => {
                 vm.computer = response.data;
             });
         }
 
+        computersApi.getCompanies((response) => {
+            vm.companies = response.data;
+        });
+
+
         function $onInit() {
             $log.debug('FormController init');
+        }
+
+        function save(computer) {
+            computersApi.add()
         }
     }
 })();
