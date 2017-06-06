@@ -1,5 +1,12 @@
 {
     "title": "Computer-database",
+    "found": "Ordinateurs trouvés",
+    "tb.computerName": "Nom de l'ordinateur",
+    "tb.intro": "Date d'introduction",
+    "tb.disco": "Date de retrait",
+    "tb.company": "Compagnie",
+    "btn.add": "Ajouter Ordinateur",
+    "btn.edit": "Modifier",
     "btn.next": "Suivant",
     "btn.back": "Précedent",
     "btn.search": "Rechercher",

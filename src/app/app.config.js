@@ -24,10 +24,10 @@
             'title': 'Hello',
             'FOO': 'This is a paragraph'
         });*/
-        //$translateProvider.useSanitizeValueStrategy(null);
+        $translateProvider.useSanitizeValueStrategy(null);
         $translateProvider.registerAvailableLanguageKeys(['en', 'fr']);
         $translateProvider.useStaticFilesLoader({ //need additional bower lib
-            prefix: "resources/i18n/",
+            prefix: "src/resources/i18n/",
             suffix: ".json"
         });
         $translateProvider.preferredLanguage("fr");

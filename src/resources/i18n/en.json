@@ -1,5 +1,12 @@
 {
   "title": "Computer-database",
+  "found": "Computers found",
+  "tb.computerName": "Computer name",
+  "tb.intro": "Introduced date",
+  "tb.disco": "Discontinued date",
+  "tb.company": "Company",
+  "btn.add": "Add Computer",
+  "btn.edit": "Edit",
   "btn.next": "Next",
   "btn.back": "Previous",
   "btn.search": "Search",

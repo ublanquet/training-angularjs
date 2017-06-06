@@ -7,7 +7,7 @@
     function computersApi($http, Computer) {
         return {
             list: (callback) => {
-                $http.get(env.api.URL + '/computers').then(callback)
+                $http.get(env.api.URL + '/computers').then(pageMapper).then(callback)
             },
             getPage: (pageN, perPage, callback) =>
                 $http.get(`${env.api.URL}/computers` + '?pageN=' + pageN + '&perPage=' + perPage).then(pageMapper).then(callback),
