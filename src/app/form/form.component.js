@@ -37,5 +37,15 @@
             console.log(JSON.stringify(computersApi.edit(vm.computer)));
             console.log(JSON.stringify(computer));
         }
+
+        vm.formatDate = function () {
+            // more robust logic here
+            vm.value = format (vm.computer.introduced);
+            vm.value = vm.valueEntered * 100;
+        }
+        /*
+        $scope.$watch('dollars', function(dollars) {
+            $scope.cents = $scope.dollars * 100;
+        })*/
     }
 })();

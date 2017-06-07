@@ -21,11 +21,11 @@
                         </div>
                         <div class="form-group">
                             <label for="introduced" translate>tb.intro</label>
-                            <input type="date" class="form-control" id="introduced" placeholder="Introduced date" datetime="dd/MM/yyyy" ng-model="$ctrl.computer.introduced">
+                            <input type="date" class="form-control" id="introduced" placeholder="Introduced date" date="dd/MM/yyyy" ng-change="formatDate()"  ng-model="$ctrl.computer.introduced">
                         </div>
                         <div class="form-group">
                             <label for="discontinued" translate>tb.disco</label>
-                            <input type="date" class="form-control" id="discontinued" placeholder="Discontinued date" datetime="dd/MM/yyyy" ng-model="$ctrl.computer.discontinued">
+                            <input type="date" class="form-control" id="discontinued" placeholder="Discontinued date" date="dd/MM/yyyy" ng-model="$ctrl.computer.discontinued">
                         </div>
                         <div class="form-group">
                             <label for="companyId" translate>tb.company</label>
