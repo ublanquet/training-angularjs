@@ -11,6 +11,8 @@
         const vm = this;
         vm.$onInit = $onInit;
         vm.id = $stateParams.id;
+        vm.edit = edit;
+        vm.save = save;
 
         if (vm.id != undefined) { // if id undefined, add state, else edit state
             computersApi.get(vm.id, (response) => {
@@ -28,11 +30,11 @@
         }
 
         function save() {
-            computersApi.add();
+            computersApi.add(vm.computer);
         }
 
         function edit() {
-            computersApi.edit(computer);
+            console.log(JSON.stringify(computersApi.edit(vm.computer)));
             console.log(JSON.stringify(computer));
         }
     }

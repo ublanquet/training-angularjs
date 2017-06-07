@@ -13,7 +13,7 @@
 
 
                 <form >
-                    <input type="hidden" value="{{$ctrl.id}}" id="id" ng-model="computer.id"/>
+                    <input type="hidden" value="{{$ctrl.id}}" id="id" ng-model="$ctrl.computer.id"/>
                     <fieldset>
                         <div class="form-group">
                             <label for="computerName" translate>tb.computerName</label>
@@ -21,15 +21,15 @@
                         </div>
                         <div class="form-group">
                             <label for="introduced" translate>tb.intro</label>
-                            <input type="date" class="form-control" id="introduced" placeholder="Introduced date" value="{{ 'with_date'|translate:{ date : $ctrl.computer.introduced} }}" ng-model="$ctrl.computer.introduced" >
+                            <input type="date" class="form-control" id="introduced" placeholder="Introduced date" datetime="dd/MM/yyyy" ng-model="$ctrl.computer.introduced">
                         </div>
                         <div class="form-group">
                             <label for="discontinued" translate>tb.disco</label>
-                            <input type="date" class="form-control" id="discontinued" placeholder="Discontinued date" value="{{ 'with_date'|translate:{ date : $ctrl.computer.discontinued} }}" ng-model="computer.discontinued">
+                            <input type="date" class="form-control" id="discontinued" placeholder="Discontinued date" datetime="dd/MM/yyyy" ng-model="$ctrl.computer.discontinued">
                         </div>
                         <div class="form-group">
                             <label for="companyId" translate>tb.company</label>
-                            <select class="form-control" id="companyId" ng-model="computer.companyId">
+                            <select class="form-control" id="companyId" ng-model="$ctrl.computer.companyId">
                                 <option value="0">--</option>
                                 <option ng-repeat="company in $ctrl.companies track by company.id" value="{{company.id}}"   ng-selected="company.id === $ctrl.computer.company.id" >
                                     {{company.name}}

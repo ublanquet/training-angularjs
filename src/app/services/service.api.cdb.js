@@ -23,11 +23,11 @@
             },
 
             add: (computer, callback) => {
-                $http.post(`${env.api.URL}/computers/add`, computer).then(callback);
+                $http.post(`${env.api.URL}/computers`, JSON.stringify(computer)).then(callback);
             },
 
             edit: (computer, callback) => {
-                $http.put(`${env.api.URL}/computers`, computer).then(callback);
+                $http.put(`${env.api.URL}/computers`, JSON.stringify(computer)).then(callback);
             },
 
             delete: (computersIds, callback) => {
